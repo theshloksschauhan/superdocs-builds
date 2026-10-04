@@ -91,7 +91,7 @@ def check_stability(
             reason="Missing content_hash or rev — file may not be fully synced",
         )
 
-    # Find the most recent prior observation for this path
+    # Find the earliest prior observation for this path (used to measure stable elapsed time)
     prior = (
         db.query(DropboxEvent)
         .filter(
